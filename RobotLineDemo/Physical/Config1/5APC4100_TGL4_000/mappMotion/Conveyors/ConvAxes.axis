@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAxis_Conveyor_1" Type="axis">
+    <Selector ID="BaseType" Value="LinearPeriodic">
+      <Group ID="PeriodSettings">
+        <Property ID="Period" Value="4000.0" />
+      </Group>
+    </Selector>
+    <Selector ID="MovementLimits">
+      <Selector ID="Acceleration">
+        <Property ID="Acceleration" Value="1000" />
+      </Selector>
+      <Selector ID="Deceleration">
+        <Property ID="Deceleration" Value="1000" />
+      </Selector>
+    </Selector>
+  </Element>
+  <Element ID="gAxis_Conveyor_2" Type="axis">
+    <Selector ID="BaseType" Value="LinearPeriodic">
+      <Group ID="PeriodSettings">
+        <Property ID="Period" Value="4000.0" />
+      </Group>
+    </Selector>
+    <Selector ID="MovementLimits">
+      <Selector ID="Acceleration">
+        <Property ID="Acceleration" Value="1000" />
+      </Selector>
+      <Selector ID="Deceleration">
+        <Property ID="Deceleration" Value="1000" />
+      </Selector>
+    </Selector>
+  </Element>
+</Configuration>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="6.0"?>
+<OpcUaSource FileVersion="10">
+  <Aliases>
+    <ACLAliases />
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <Module Name="&lt;Default&gt;">
+    <Task Name="MovePrg">
+      <Variable Name="GrippersVisu">
+        <Variable Name="OrangeObjectInGripperRob1" />
+        <Variable Name="OrangeObjectInGripperRob2" />
+        <Variable Name="OrangeObjectInGripperRob3" />
+        <Variable Name="OrangeObjectInGripperRob4" />
+        <Variable Name="OrangeObjectInGripperRob5" />
+        <Variable Name="OrangeObjectInGripperRob6" />
+        <Variable Name="GreyObjectInGripperRob1" />
+        <Variable Name="GreyObjectInGripperRob2" />
+        <Variable Name="GreyObjectInGripperRob3" />
+        <Variable Name="GreyObjectInGripperRob4" />
+        <Variable Name="GreyObjectInGripperRob5" />
+        <Variable Name="GreyObjectInGripperRob6" />
+      </Variable>
+    </Task>
+  </Module>
+</OpcUaSource>

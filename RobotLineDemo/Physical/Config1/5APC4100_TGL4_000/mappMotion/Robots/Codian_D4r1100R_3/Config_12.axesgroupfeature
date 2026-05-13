@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="Feature_Programs_D4r1100R_3" Type="axesgroupfeature" Description="Codian D4-ST41-1100-R30 [RobotID=&quot;CodianD4ST41r1100R30&quot; Version=&quot;6.4.1&quot;]">
+    <Selector ID="Type">
+      <Group ID="InitialSettings">
+        <Selector ID="AccuracyHoldDelays" Value="User defined">
+          <Property ID="UserAxesDelay" Value="0.06" />
+        </Selector>
+      </Group>
+      <Group ID="ProgramElements">
+        <Group ID="PVs">
+          <Group ID="PV[1]">
+            <Property ID="PvName" Value="::MovePrg:GripperRobot3OpenClose" />
+            <Group ID="Advanced">
+              <Property ID="Alias" Value="CloseGripper" />
+              <Selector ID="Synchronization" Value="Path" />
+            </Group>
+          </Group>
+        </Group>
+      </Group>
+    </Selector>
+  </Element>
+  <Element ID="Feature_Jogging_D4r1100R_3" Type="axesgroupfeature" Description="Codian D4-ST41-1100-R30 [RobotID=&quot;CodianD4ST41r1100R30&quot; Version=&quot;6.4.1&quot;]">
+    <Selector ID="Type" Value="Jogging" />
+  </Element>
+  <Element ID="Feature_FeedForward_D4r1100R_3" Type="axesgroupfeature" Description="Codian D4-ST41-1100-R30 [RobotID=&quot;CodianD4ST41r1100R30&quot; Version=&quot;6.4.1&quot;]">
+    <Selector ID="Type" Value="FeedForward">
+      <Property ID="RiseTime" Value="0.25" />
+      <Selector ID="Filter" Value="AxisJerkTime" />
+    </Selector>
+  </Element>
+</Configuration>

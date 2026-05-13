@@ -1,0 +1,62 @@
+(*Command interface*)
+VAR
+	Cmd : CommandType;
+END_VAR
+(*Robot and conveyor FBs*)
+VAR
+	MpRobot_0 : MpDelta4Axis;
+	MpRobot_1 : MpDelta4Axis;
+	MpRobot_2 : MpDelta4Axis;
+	MpRobot_3 : MpDelta4Axis;
+	MpRobot_4 : MpDelta4Axis;
+	MpRobot_5 : MpDelta4Axis;
+	MpRobotPar1 : MpDelta4AxisParType;
+	MpRobotPar2 : MpDelta4AxisParType;
+	MpRobotPar6 : MpDelta4AxisParType;
+	MpAxisConv1 : MpAxisBasic;
+	MpAxisConv2 : MpAxisBasic;
+	MpAxisParConv1 : MpAxisBasicParType;
+	MpAxisParConv2 : MpAxisBasicParType;
+	MC_BR_TrackingPathReset_0 : MC_BR_TrackingPathReset;
+	MC_BR_TrackingPathReset_1 : MC_BR_TrackingPathReset;
+	MC_BR_TrackingFrameDelete_0 : MC_BR_TrackingFrameDelete;
+	MC_BR_TrackingFrameDelete_1 : MC_BR_TrackingFrameDelete;
+END_VAR
+(**)
+VAR
+	ProcPar_AutCrtCond1TrkPath1_1 : MC_BR_ProcessParam;
+	ProcPar_AutCrtCond1TrkPath1_2 : MC_BR_ProcessParam;
+	ProcPar_AutCrtCond1TrkPath1_3 : MC_BR_ProcessParam;
+	AutoCreateConditionParTrkPath1_1 : McCfgTrkPathAutCrtCondType;
+	AutoCreateConditionParTrkPath1_2 : McCfgTrkPathAutCrtCondType;
+	AutoCreateConditionParTrkPath1_3 : McCfgTrkPathAutCrtCondType;
+	StatusTrackingPath1 : MC_BR_TrackingPathReadStatus;
+	StatusTrackingPath2 : MC_BR_TrackingPathReadStatus;
+END_VAR
+(*Grippers*)
+VAR
+	GripperRobot1OpenClose : BOOL;
+	GripperRobot2OpenClose : BOOL;
+	GripperRobot3OpenClose : BOOL;
+	GripperRobot4OpenClose : BOOL;
+	GripperRobot5OpenClose : BOOL;
+	GripperRobot6OpenClose : BOOL;
+	GrippersVisu : GrippedObjectType;
+END_VAR
+(*Create containers*)
+VAR
+	MC_BR_TrkFrmCreate_Tray : MC_BR_TrackingFrameCreate;
+	MC_BR_TrkFrmsCreate_TrayContent : MC_BR_TrackingFramesCreate;
+END_VAR
+VAR CONSTANT
+	NUMBER_OF_FRAMES : USINT := 4;
+	NUMBER_OF_FRAMES_INDEX : USINT := NUMBER_OF_FRAMES - 1;
+END_VAR
+VAR
+	TrayContent : ARRAY[0..NUMBER_OF_FRAMES_INDEX] OF McTrkFrmCreateParType;
+	MC_BR_TrackingFramesCreate_0 : MC_BR_TrackingFramesCreate;
+	i : INT;
+	DeltaPos : LREAL;
+	TravelAccumulator : LREAL;
+	LastConveyorPos : LREAL;
+END_VAR

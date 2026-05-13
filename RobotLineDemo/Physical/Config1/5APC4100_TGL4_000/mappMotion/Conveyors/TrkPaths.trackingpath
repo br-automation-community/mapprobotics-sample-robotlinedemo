@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gTrkPath_Conveyor_1" Type="trackingpath">
+    <Selector ID="Type">
+      <Property ID="MaxTrackingFrames" Value="200" />
+      <Property ID="MaxPositionError" Value="7.0" />
+      <Selector ID="MotionSource" Value="Axis">
+        <Property ID="AxisRef" Value="gAxis_Conveyor_1" />
+      </Selector>
+      <Group ID="TrackingFrames">
+        <Group ID="AutomaticCreation">
+          <Selector ID="Condition[1]">
+            <Property ID="Distance" Value="150.0" />
+            <Selector ID="Activation" Value="ProcessVariable">
+              <Property ID="ProcessVariableName" Value="::MovePrg:Cmd.Details.AutoCreationPath1" />
+            </Selector>
+            <Group ID="Position">
+              <Group ID="Translation">
+                <Property ID="X" Value="0" />
+                <Property ID="Y" Value="-150" />
+              </Group>
+            </Group>
+          </Selector>
+          <Selector ID="Condition[2]">
+            <Property ID="Distance" Value="150.0" />
+            <Selector ID="Activation" Value="ProcessVariable">
+              <Property ID="ProcessVariableName" Value="::MovePrg:Cmd.Details.AutoCreationPath1" />
+            </Selector>
+            <Group ID="Position">
+              <Group ID="Translation">
+                <Property ID="X" Value="0" />
+                <Property ID="Y" Value="-75" />
+              </Group>
+            </Group>
+          </Selector>
+          <Selector ID="Condition[3]">
+            <Property ID="Distance" Value="150.0" />
+            <Selector ID="Activation" Value="ProcessVariable">
+              <Property ID="ProcessVariableName" Value="::MovePrg:Cmd.Details.AutoCreationPath1" />
+            </Selector>
+            <Group ID="Position">
+              <Group ID="Translation">
+                <Property ID="X" Value="0" />
+                <Property ID="Y" Value="0" />
+              </Group>
+            </Group>
+          </Selector>
+        </Group>
+        <Group ID="AutomaticDeletion">
+          <Selector ID="Condition[1]">
+            <Property ID="MinPosition" Value="0" />
+            <Property ID="MaxPosition" Value="7000" />
+          </Selector>
+          <Selector ID="Condition[2]" Value="AfterDesynchronization">
+            <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_1" />
+          </Selector>
+          <Selector ID="Condition[3]" Value="AfterDesynchronization">
+            <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_2" />
+          </Selector>
+          <Selector ID="Condition[4]" Value="AfterDesynchronization">
+            <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_3" />
+          </Selector>
+          <Selector ID="Condition[5]" Value="AfterDesynchronization">
+            <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_4" />
+          </Selector>
+          <Selector ID="Condition[6]" Value="AfterDesynchronization">
+            <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_5" />
+          </Selector>
+          <Selector ID="Condition[7]" Value="AfterDesynchronization">
+            <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_6" />
+          </Selector>
+        </Group>
+      </Group>
+    </Selector>
+    <Selector ID="SceneViewerObject">
+      <Selector ID="Frame" Value="Invisible" />
+      <Selector ID="Content">
+        <Group ID="Template[1]">
+          <Property ID="Name" Value="Frame" />
+        </Group>
+        <Group ID="Template[2]">
+          <Property ID="Name" Value="Product" />
+          <Selector ID="VisualRepresentation" Value="3DMesh">
+            <Property ID="FileName" Value="Product.tnr" />
+            <Property ID="Material" Value="LightGreyMatte" />
+          </Selector>
+          <Selector ID="Filter[1]" Value="AttributeBased">
+            <Selector ID="Type" Value="ForbiddenBits">
+              <Property ID="Mask" Value="2#0000_0000_0000_0000_0000_0000_0000_0001" />
+            </Selector>
+          </Selector>
+        </Group>
+        <Group ID="Template[3]">
+          <Property ID="Name" Value="ProductSelected" />
+          <Selector ID="VisualRepresentation" Value="3DMesh">
+            <Property ID="FileName" Value="Product.tnr" />
+          </Selector>
+          <Selector ID="Filter[1]" Value="AttributeBased">
+            <Selector ID="Type" Value="MandatoryBits">
+              <Property ID="Mask" Value="2#0000_0000_0000_0000_0000_0000_0000_0001" />
+            </Selector>
+          </Selector>
+        </Group>
+      </Selector>
+    </Selector>
+  </Element>
+  <Element ID="gTrkPath_Conveyor_2" Type="trackingpath">
+    <Selector ID="Type">
+      <Property ID="MaxTrackingFrames" Value="200" />
+      <Property ID="MaxPositionError" Value="7.0" />
+      <Selector ID="MotionSource" Value="Axis">
+        <Property ID="AxisRef" Value="gAxis_Conveyor_2" />
+      </Selector>
+      <Group ID="TrackingFrames">
+        <Group ID="AutomaticDeletion">
+          <Selector ID="Condition[1]">
+            <Property ID="MinPosition" Value="-200" />
+            <Property ID="MaxPosition" Value="7800" />
+          </Selector>
+        </Group>
+      </Group>
+    </Selector>
+    <Selector ID="SceneViewerObject">
+      <Selector ID="Frame" Value="Invisible" />
+      <Selector ID="Content">
+        <Group ID="Template[1]">
+          <Property ID="Name" Value="Frame" />
+        </Group>
+        <Group ID="Template[2]">
+          <Property ID="Name" Value="Tray" />
+          <Selector ID="VisualRepresentation" Value="3DMesh">
+            <Property ID="FileName" Value="Tray.tnr" />
+            <Property ID="Material" Value="LightGreyMatte" />
+          </Selector>
+          <Selector ID="Filter[1]" Value="AttributeBased">
+            <Selector ID="Type" Value="MandatoryBits">
+              <Property ID="Mask" Value="2#0100_0000_0000" />
+            </Selector>
+          </Selector>
+        </Group>
+        <Group ID="Template[3]">
+          <Property ID="Name" Value="Product" />
+          <Selector ID="VisualRepresentation" Value="3DMesh">
+            <Property ID="FileName" Value="Product.tnr" />
+            <Property ID="Material" Value="LightGreyMatte" />
+          </Selector>
+          <Selector ID="Filter[1]" Value="AttributeBased">
+            <Selector ID="Type" Value="MandatoryBits">
+              <Property ID="Mask" Value="2#0000_0000_0000_0000_0000_1000_0000_0000" />
+            </Selector>
+          </Selector>
+        </Group>
+      </Selector>
+    </Selector>
+  </Element>
+</Configuration>

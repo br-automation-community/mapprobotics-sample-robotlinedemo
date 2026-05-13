@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">ObjectHierarchyCustom.scn</Object>
+    <Object Type="File">Belt.scn</Object>
+    <Object Type="File">Belt2.scn</Object>
+    <Object Type="File">Objects.scn</Object>
+    <Object Type="File">Camera.scn</Object>
+    <Object Type="File">Sink1.scn</Object>
+    <Object Type="File">Sink2.scn</Object>
+    <Object Type="File">Product.tnr</Object>
+    <Object Type="File">Tray.tnr</Object>
+    <Object Type="Package">Objects</Object>
+    <Object Type="Package">Belt</Object>
+    <Object Type="File">Tool1.scn</Object>
+    <Object Type="File">Tool2.scn</Object>
+    <Object Type="File">Tool3.scn</Object>
+    <Object Type="File">Tool4.scn</Object>
+    <Object Type="File">Tool5.scn</Object>
+    <Object Type="File">Tool6.scn</Object>
+  </Objects>
+</Package>

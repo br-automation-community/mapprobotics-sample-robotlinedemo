@@ -1,0 +1,3 @@
+VAR
+	gOverride : REAL;
+END_VAR

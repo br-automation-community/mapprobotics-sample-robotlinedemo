@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">Middle_Belt.tnr</Object>
+    <Object Type="File">Leg_Belt.tnr</Object>
+    <Object Type="File">Leg.tnr</Object>
+    <Object Type="File">Front_Belt.tnr</Object>
+    <Object Type="File">Front.tnr</Object>
+    <Object Type="File">Back.tnr</Object>
+    <Object Type="File">Back_Belt.tnr</Object>
+    <Object Type="File">Middle.tnr</Object>
+  </Objects>
+</Package>

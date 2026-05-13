@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="Feature_TrkFrmSel_R1" Type="axesgroupfeature">
+    <Selector ID="Type" Value="TrackingFrameSelection">
+      <Group ID="Selectors">
+        <Selector ID="Selector[1]">
+          <Property ID="Name" Value="ProductSelector" />
+          <Selector ID="Strategy" Value="MinimumDistanceToPoint">
+            <Selector ID="Origin" Value="MCS">
+              <Group ID="Translation">
+                <Property ID="X" Value="-350" />
+                <Property ID="Y" Value="300" />
+              </Group>
+            </Selector>
+          </Selector>
+          <Group ID="Filters">
+            <Selector ID="Filter[1]">
+              <Property ID="TrackingPathRef[1]" Value="gTrkPath_Conveyor_1" />
+            </Selector>
+            <Selector ID="Filter[2]" Value="SelectionArea">
+              <Selector ID="Area[1]" Value="Cylinder">
+                <Selector ID="Origin" Value="MCS" />
+                <Group ID="Translation">
+                  <Property ID="X" Value="-470" />
+                  <Property ID="Z" Value="-100" />
+                </Group>
+                <Group ID="Dimensions">
+                  <Property ID="Radius" Value="475" />
+                  <Property ID="Height" Value="250" />
+                </Group>
+              </Selector>
+            </Selector>
+          </Group>
+          <Selector ID="LockingAfterSelection" Value="AllSelectors" />
+        </Selector>
+        <Selector ID="Selector[2]">
+          <Property ID="Name" Value="PlacePositionSelector" />
+          <Selector ID="Strategy" Value="MaximumXValueOnTrackingPath" />
+          <Group ID="Filters">
+            <Selector ID="Filter[1]">
+              <Property ID="TrackingPathRef[1]" Value="gTrkPath_Conveyor_2" />
+            </Selector>
+            <Selector ID="Filter[2]" Value="SelectionArea">
+              <Selector ID="Area[1]" Value="Cylinder">
+                <Selector ID="Origin" Value="MCS" />
+                <Group ID="Translation">
+                  <Property ID="X" Value="250" />
+                  <Property ID="Z" Value="-100" />
+                </Group>
+                <Group ID="Dimensions">
+                  <Property ID="Radius" Value="500" />
+                  <Property ID="Height" Value="250" />
+                </Group>
+              </Selector>
+            </Selector>
+          </Group>
+          <Selector ID="LockingAfterSelection" Value="AllSelectors" />
+        </Selector>
+        <Selector ID="Selector[3]">
+          <Property ID="Name" Value="PlacePositionSelectorPrior" />
+          <Selector ID="Strategy" Value="MaximumXValueOnTrackingPath" />
+          <Group ID="Filters">
+            <Selector ID="Filter[1]">
+              <Property ID="TrackingPathRef[1]" Value="gTrkPath_Conveyor_2" />
+            </Selector>
+            <Selector ID="Filter[2]" Value="SelectionArea">
+              <Selector ID="Area[1]">
+                <Selector ID="Origin" Value="MCS" />
+                <Group ID="Translation">
+                  <Property ID="X" Value="-300" />
+                  <Property ID="Y" Value="200" />
+                  <Property ID="Z" Value="-100" />
+                </Group>
+                <Group ID="Dimensions">
+                  <Property ID="Length" Value="700" />
+                  <Property ID="Width" Value="200" />
+                  <Property ID="Height" Value="250" />
+                </Group>
+              </Selector>
+            </Selector>
+          </Group>
+          <Selector ID="LockingAfterSelection" Value="AllSelectors" />
+        </Selector>
+      </Group>
+    </Selector>
+  </Element>
+  <Element ID="Feature_Programs_D4r1100R_1" Type="axesgroupfeature" Description="Codian D4-ST41-1100-R30 [RobotID=&quot;CodianD4ST41r1100R30&quot; Version=&quot;6.4.1&quot;]">
+    <Selector ID="Type">
+      <Group ID="InitialSettings">
+        <Selector ID="AccuracyHoldDelays" Value="User defined">
+          <Property ID="UserAxesDelay" Value="0.06" />
+        </Selector>
+      </Group>
+      <Group ID="ProgramElements">
+        <Group ID="PVs">
+          <Group ID="PV[1]">
+            <Property ID="PvName" Value="::MovePrg:GripperRobot1OpenClose" />
+            <Group ID="Advanced">
+              <Property ID="Alias" Value="CloseGripper" />
+              <Selector ID="Synchronization" Value="Path" />
+            </Group>
+          </Group>
+        </Group>
+      </Group>
+    </Selector>
+  </Element>
+  <Element ID="Feature_Jogging_D4r1100R_1" Type="axesgroupfeature" Description="Codian D4-ST41-1100-R30 [RobotID=&quot;CodianD4ST41r1100R30&quot; Version=&quot;6.4.1&quot;]">
+    <Selector ID="Type" Value="Jogging" />
+  </Element>
+  <Element ID="Feature_FeedForward_D4r1100R_1" Type="axesgroupfeature" Description="Codian D4-ST41-1100-R30 [RobotID=&quot;CodianD4ST41r1100R30&quot; Version=&quot;6.4.1&quot;]">
+    <Selector ID="Type" Value="FeedForward">
+      <Property ID="RiseTime" Value="0.25" />
+      <Selector ID="Filter" Value="AxisJerkTime" />
+    </Selector>
+  </Element>
+</Configuration>

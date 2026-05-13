@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="Package">Gripper</Object>
+    <Object Type="Package">Product</Object>
+    <Object Type="Package">Codian_D4r1100R_1</Object>
+    <Object Type="Package">Codian_D4r1100R_2</Object>
+    <Object Type="Package">Codian_D4r1100R_3</Object>
+    <Object Type="Package">Codian_D4r1100R_4</Object>
+    <Object Type="Package">Codian_D4r1100R_5</Object>
+    <Object Type="Package">Codian_D4r1100R_6</Object>
+    <Object Type="File">Common.axesgroupfeature</Object>
+  </Objects>
+</Package>

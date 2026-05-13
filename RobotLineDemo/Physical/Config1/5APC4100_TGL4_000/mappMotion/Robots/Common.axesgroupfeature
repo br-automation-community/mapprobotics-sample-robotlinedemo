@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="FrameHierarchyRotBaseAngle1" Type="axesgroupfeature">
+    <Selector ID="Type" Value="FrameHierarchy">
+      <Selector ID="FrameHierarchy">
+        <Group ID="MCS">
+          <Group ID="BCS">
+            <Group ID="Translation">
+              <Property ID="Z" Value="925" />
+            </Group>
+            <Group ID="Orientation">
+              <Property ID="Angle3" Value="45" />
+            </Group>
+          </Group>
+        </Group>
+      </Selector>
+    </Selector>
+  </Element>
+  <Element ID="FrameHierarchyRotBaseAngle2" Type="axesgroupfeature">
+    <Selector ID="Type" Value="FrameHierarchy">
+      <Selector ID="FrameHierarchy">
+        <Group ID="MCS">
+          <Group ID="BCS">
+            <Group ID="Translation">
+              <Property ID="Z" Value="925" />
+            </Group>
+            <Group ID="Orientation">
+              <Property ID="Angle3" Value="-15" />
+            </Group>
+          </Group>
+        </Group>
+      </Selector>
+    </Selector>
+  </Element>
+  <Element ID="ToolSetup" Type="axesgroupfeature">
+    <Selector ID="Type" Value="Tools">
+      <Selector ID="Tools" Value="SingleTool">
+        <Property ID="ToolDataRef" Value="RobotTool1_Geometry" />
+        <Property ID="ToolDynParDataRef" Value="RobotTool1_DynPar" />
+      </Selector>
+    </Selector>
+  </Element>
+  <Element ID="Tracking" Type="axesgroupfeature">
+    <Selector ID="Type" Value="Tracking" />
+  </Element>
+  <Element ID="PathDefinitions" Type="axesgroupfeature">
+    <Selector ID="Type" Value="PathDefinitions">
+      <Group ID="PathDefinition[1]">
+        <Selector ID="Type">
+          <Selector ID="CalculatedIn" Value="PCS" />
+        </Selector>
+      </Group>
+    </Selector>
+  </Element>
+</Configuration>

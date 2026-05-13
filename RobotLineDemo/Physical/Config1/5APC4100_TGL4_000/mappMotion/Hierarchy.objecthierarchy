@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="ObjectHierarchy" Type="objecthierarchy">
+    <Group ID="SceneViewer">
+      <Property ID="FileDevice" Value="Scene" />
+    </Group>
+    <Group ID="GlobalCoordinateSystem">
+      <Group ID="Object[1]">
+        <Selector ID="Type">
+          <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_1" />
+          <Selector ID="SceneViewerObject">
+            <Group ID="IncludedScenes">
+              <Group ID="ComponentFrames">
+                <Property ID="FlangeSceneFile" Value="Tool1.scn" />
+              </Group>
+            </Group>
+          </Selector>
+        </Selector>
+      </Group>
+      <Group ID="Object[2]">
+        <Selector ID="Type">
+          <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_2" />
+          <Group ID="Translation">
+            <Property ID="X" Value="890" />
+          </Group>
+          <Selector ID="SceneViewerObject">
+            <Group ID="IncludedScenes">
+              <Group ID="ComponentFrames">
+                <Property ID="FlangeSceneFile" Value="Tool2.scn" />
+              </Group>
+            </Group>
+          </Selector>
+        </Selector>
+      </Group>
+      <Group ID="Object[3]">
+        <Selector ID="Type">
+          <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_3" />
+          <Group ID="Translation">
+            <Property ID="X" Value="1940" />
+          </Group>
+          <Selector ID="SceneViewerObject">
+            <Group ID="IncludedScenes">
+              <Group ID="ComponentFrames">
+                <Property ID="FlangeSceneFile" Value="Tool3.scn" />
+              </Group>
+            </Group>
+          </Selector>
+        </Selector>
+      </Group>
+      <Group ID="Object[4]">
+        <Selector ID="Type">
+          <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_4" />
+          <Group ID="Translation">
+            <Property ID="X" Value="2830" />
+          </Group>
+          <Selector ID="SceneViewerObject">
+            <Group ID="IncludedScenes">
+              <Property ID="SceneFile" Value="" />
+              <Group ID="ComponentFrames">
+                <Property ID="FlangeSceneFile" Value="Tool4.scn" />
+              </Group>
+            </Group>
+          </Selector>
+        </Selector>
+      </Group>
+      <Group ID="Object[5]">
+        <Selector ID="Type">
+          <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_5" />
+          <Group ID="Translation">
+            <Property ID="X" Value="3880" />
+          </Group>
+          <Selector ID="SceneViewerObject">
+            <Group ID="IncludedScenes">
+              <Group ID="ComponentFrames">
+                <Property ID="FlangeSceneFile" Value="Tool5.scn" />
+              </Group>
+            </Group>
+          </Selector>
+        </Selector>
+      </Group>
+      <Group ID="Object[6]">
+        <Selector ID="Type">
+          <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_6" />
+          <Group ID="Translation">
+            <Property ID="X" Value="4770" />
+            <Property ID="Z" Value="0" />
+          </Group>
+          <Selector ID="SceneViewerObject">
+            <Group ID="IncludedScenes">
+              <Group ID="ComponentFrames">
+                <Property ID="FlangeSceneFile" Value="Tool6.scn" />
+              </Group>
+            </Group>
+          </Selector>
+        </Selector>
+      </Group>
+      <Group ID="Object[7]">
+        <Selector ID="Type" Value="TrackingPath">
+          <Property ID="TrackingPathRef" Value="gTrkPath_Conveyor_1" />
+          <Group ID="Translation">
+            <Property ID="X" Value="-1000" />
+            <Property ID="Y" Value="-190" />
+            <Property ID="Z" Value="-100" />
+          </Group>
+          <Selector ID="SceneViewerObject">
+            <Group ID="IncludedScenes">
+              <Property ID="SceneFile" Value="" />
+            </Group>
+          </Selector>
+        </Selector>
+        <Group ID="Object[1]">
+          <Selector ID="Type" Value="StandardFrame">
+            <Property ID="Name" Value="ConveyorBelt1" />
+            <Group ID="Translation">
+              <Property ID="X" Value="-1000" />
+            </Group>
+            <Selector ID="SceneViewerObject">
+              <Group ID="IncludedScenes">
+                <Property ID="SceneFile" Value="Belt.scn" />
+              </Group>
+            </Selector>
+          </Selector>
+        </Group>
+        <Group ID="Object[2]">
+          <Selector ID="Type" Value="StandardFrame">
+            <Property ID="Name" Value="Camera" />
+            <Group ID="Translation">
+              <Property ID="Z" Value="800" />
+            </Group>
+            <Selector ID="SceneViewerObject">
+              <Group ID="IncludedScenes">
+                <Property ID="SceneFile" Value="Camera.scn" />
+              </Group>
+            </Selector>
+          </Selector>
+        </Group>
+        <Group ID="Object[3]">
+          <Selector ID="Type" Value="StandardFrame">
+            <Property ID="Name" Value="Sink1" />
+            <Group ID="Translation">
+              <Property ID="X" Value="7100" />
+            </Group>
+            <Selector ID="SceneViewerObject">
+              <Group ID="IncludedScenes">
+                <Property ID="SceneFile" Value="Sink1.scn" />
+              </Group>
+            </Selector>
+          </Selector>
+        </Group>
+      </Group>
+      <Group ID="Object[8]">
+        <Selector ID="Type" Value="TrackingPath">
+          <Property ID="TrackingPathRef" Value="gTrkPath_Conveyor_2" />
+          <Group ID="Translation">
+            <Property ID="X" Value="6000" />
+            <Property ID="Y" Value="300" />
+            <Property ID="Z" Value="-100" />
+          </Group>
+          <Group ID="Orientation">
+            <Property ID="Angle3" Value="180" />
+          </Group>
+          <Selector ID="SceneViewerObject">
+            <Group ID="IncludedScenes">
+              <Property ID="SceneFile" Value="" />
+            </Group>
+          </Selector>
+        </Selector>
+        <Group ID="Object[1]">
+          <Selector ID="Type" Value="StandardFrame">
+            <Property ID="Name" Value="ConveyorBelt2" />
+            <Group ID="Translation">
+              <Property ID="X" Value="-250" />
+              <Property ID="Y" Value="70" />
+            </Group>
+            <Selector ID="SceneViewerObject">
+              <Group ID="IncludedScenes">
+                <Property ID="SceneFile" Value="Belt2.scn" />
+              </Group>
+            </Selector>
+          </Selector>
+          <Group ID="Object[1]">
+            <Selector ID="Type" Value="StandardFrame">
+              <Property ID="Name" Value="Sink2" />
+              <Group ID="Translation">
+                <Property ID="X" Value="8000" />
+                <Property ID="Y" Value="-65" />
+              </Group>
+              <Selector ID="SceneViewerObject">
+                <Group ID="IncludedScenes">
+                  <Property ID="SceneFile" Value="Sink2.scn" />
+                </Group>
+              </Selector>
+            </Selector>
+          </Group>
+        </Group>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

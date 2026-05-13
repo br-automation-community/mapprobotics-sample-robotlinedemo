@@ -1,0 +1,21 @@
+(*conveyor controller*)
+VAR
+	Density : REAL; (* items/m*)
+	Setpoint : REAL; (* items/m*)
+	Slope : REAL; (* % per items/m (e.g., 15.0*)
+	MinOverride : REAL;
+	MaxOverride : REAL;
+	Override : REAL;
+	MC_BR_TrackingPathGetFrames_0 : MC_BR_TrackingPathGetFrames;
+	frameCount : UINT := 0;
+	index : UINT;
+	LowerX : LREAL := 0;
+	UpperX : LREAL := 0;
+	MaxX : LREAL;
+	StopZoneReached : BOOL := FALSE;
+	McTrkFrmInfoTypeArray : ARRAY[0..499] OF McTrkFrmInfoType;
+END_VAR
+(*Insert your comment here.*)
+VAR
+	MC_SetOverride_0 : MC_SetOverride;
+END_VAR
