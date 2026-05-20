@@ -86,7 +86,7 @@ PROGRAM _MAIN
 			DO_PATH_SYNCH
 				TrackingFrameSetAttribute(IP_EVAL(TrkFrmID_PlacePosition), 2048);
 			END_PATH_SYNCH	
-			WaitTime(0.050);			//wait until gripper is opened [s]
+			WaitTime(0.050);		//wait until gripper is opened [s]
 			ResetProductLoad();
             MoveLR(PlaceSynchPosUp);
             State := MachineState#SelectPickPosition;   
@@ -112,7 +112,7 @@ PROGRAM _MAIN
 					State := MachineState#PlaceObject;
 				ELSE
 						
-					//Prior area contains not place positions, search in wider area	
+					//Prior area contains no place positions, search in wider area	
 					TrackingFrameSelectorSetAttributeMasks('PlacePositionSelector', 2#0000_0001, 2#0000_0000, 2#1100_0000_0000); 
 					IF TrackingFrameSelect(TrkFrmID_PlacePosition, 'PlacePositionSelector') THEN
 						State :=  MachineState#PlaceObject;

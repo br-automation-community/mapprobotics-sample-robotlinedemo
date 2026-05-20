@@ -49,6 +49,7 @@
       <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
     </Connector>
     <Parameter ID="ConfigurationID" Value="RobotLineDemoInterpack_Config1" />
+    <Parameter ID="Simulation" Value="1" />
     <Parameter ID="SimulationIPAddress" Value="127.0.0.3" />
     <Parameter ID="Cyclic1Duration" Value="4000" />
     <Parameter ID="Cyclic1Tolerance" Value="0" />

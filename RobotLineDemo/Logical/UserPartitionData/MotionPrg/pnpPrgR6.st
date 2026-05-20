@@ -73,7 +73,7 @@ PROGRAM _MAIN
 			DO_PATH_SYNCH
 				TrackingFrameSetAttribute(IP_EVAL(TrkFrmID_PlacePosition), 2048);
 			END_PATH_SYNCH
-			WaitTime(0.050);			//wait until gripper is opened [s]
+			WaitTime(0.050);		//wait until gripper is opened [s]
 			ResetProductLoad();
             MoveLR(PlaceSynchPosUp);
             State := MachineState#SelectPickPosition;   
