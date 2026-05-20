@@ -6,6 +6,8 @@ This sample demonstrates a 6-delta-robot pick-and-place application using B&R's 
 
 It contains a very simple conveyor speed controller that makes sure that the conveyor belt containing the trays is smoothly slowed down, to ensure all tray positions are filled.
 
+https://github.com/user-attachments/assets/027d6f4d-309f-40dc-9b01-664d002a4455
+
 
 ## Prerequisites
 
