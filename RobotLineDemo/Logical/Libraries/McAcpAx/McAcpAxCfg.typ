@@ -1047,6 +1047,70 @@ TYPE
 	McCfgAcpMulPlInCrdEncType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_MUL_PL_IN_CARD_ENC*)
 		InterfaceType : McAMPICEIfTypType; (*Interface type of the encoder*)
 	END_STRUCT;
+	McAMPICIOEncEmuEnum :
+		( (*Encoder emulation selector setting*)
+		mcAMPICIOEE_NOT_USE := 0, (*Not used - Encoder emulation is not used*)
+		mcAMPICIOEE_INCR_ENC_ABR_EMU := 1, (*Incremental encoder (ABR) emulation - I/O Pins X11/1,3,5 are used as ABR single ended encoder emulation*)
+		mcAMPICIOEE_INCR_ENC_AB_EMU := 2 (*Incremental encoder (AB) emulation - I/O Pins X11/1,3 are used as AB single ended encoder emulation*)
+		);
+	McAMPICIOIncrEmuValSrcChanEnum :
+		( (*Value source channel selector setting*)
+		mcAMPICIOIEVSC_CH_1 := 0, (*Channel 1 - Channel 1 of the ACOPOSmulti module*)
+		mcAMPICIOIEVSC_CH_2 := 1 (*Channel 2 - Channel 2 of the ACOPOSmulti module*)
+		);
+	McAMPICIOIncrEmuValSrcChanType : STRUCT (*Channel from which the value should be output by the emulation*)
+		Type : McAMPICIOIncrEmuValSrcChanEnum; (*Value source channel selector setting*)
+	END_STRUCT;
+	McAMPICIOIncrEmuValSrcEnum :
+		( (*Value source selector setting*)
+		mcAMPICIOIEVS_REAL_AX_SET_POS := 0, (*Real axis set position - Real axis set position*)
+		mcAMPICIOIEVS_REAL_AX_ACT_POS := 1, (*Real axis actual position - Real axis actual position*)
+		mcAMPICIOIEVS_VIRT_AX_POS := 2, (*Virtual axis position - Virtual axis position*)
+		mcAMPICIOIEVS_PARID := 3 (*ParID - ParID of the channel*)
+		);
+	McAMPICIOIncrEmuValSrcParIDType : STRUCT (*Type mcAMPICIOIEVS_PARID settings*)
+		ParID : UINT; (*This ParID is used*)
+	END_STRUCT;
+	McAMPICIOIncrEmuValSrcType : STRUCT (*Value which should be output by the emulation*)
+		Type : McAMPICIOIncrEmuValSrcEnum; (*Value source selector setting*)
+		ParID : McAMPICIOIncrEmuValSrcParIDType; (*Type mcAMPICIOIEVS_PARID settings*)
+	END_STRUCT;
+	McAMPICIOIncrEncABREmuCntDirEnum :
+		( (*Direction of the encoder in which the position value is increasing*)
+		mcAMPICIOIEABRECD_STD := 0, (*Standard - Clockwise*)
+		mcAMPICIOIEABRECD_INV := 1 (*Inverse - Counter-clockwise*)
+		);
+	McAMPICIOIncrEncABREmuType : STRUCT (*Type mcAMPICIOEE_INCR_ENC_ABR_EMU settings*)
+		ValueSourceChannel : McAMPICIOIncrEmuValSrcChanType; (*Channel from which the value should be output by the emulation*)
+		ValueSource : McAMPICIOIncrEmuValSrcType; (*Value which should be output by the emulation*)
+		LinesPerEncoderRevolution : UDINT; (*Absolute number of lines of an encoder revolution*)
+		UnitsPerEncoderRevolutions : LREAL; (*Absolute number of units per encoder revolutions [measurement units]*)
+		UnitsPerEncoderRevolutionsParID : UDINT; (*Absolute number of units per encoder revolutions*)
+		NumberOfEncoderRevolutions : UDINT; (*Number of encoder revolutions relating to units*)
+		CountDirection : McAMPICIOIncrEncABREmuCntDirEnum; (*Direction of the encoder in which the position value is increasing*)
+	END_STRUCT;
+	McAMPICIOIncrEncABEmuCntDirEnum :
+		( (*Direction of the encoder in which the position value is increasing*)
+		mcAMPICIOIEABECD_STD := 0, (*Standard - Clockwise*)
+		mcAMPICIOIEABECD_INV := 1 (*Inverse - Counter-clockwise*)
+		);
+	McAMPICIOIncrEncABEmuType : STRUCT (*Type mcAMPICIOEE_INCR_ENC_AB_EMU settings*)
+		ValueSourceChannel : McAMPICIOIncrEmuValSrcChanType; (*Channel from which the value should be output by the emulation*)
+		ValueSource : McAMPICIOIncrEmuValSrcType; (*Value which should be output by the emulation*)
+		LinesPerEncoderRevolution : UDINT; (*Absolute number of lines of an encoder revolution*)
+		UnitsPerEncoderRevolutions : LREAL; (*Absolute number of units per encoder revolutions [measurement units]*)
+		UnitsPerEncoderRevolutionsParID : UDINT; (*Absolute number of units per encoder revolutions*)
+		NumberOfEncoderRevolutions : UDINT; (*Number of encoder revolutions relating to units*)
+		CountDirection : McAMPICIOIncrEncABEmuCntDirEnum; (*Direction of the encoder in which the position value is increasing*)
+	END_STRUCT;
+	McAMPICIOEncEmuType : STRUCT (*Configuration of encoder emulation*)
+		Type : McAMPICIOEncEmuEnum; (*Encoder emulation selector setting*)
+		IncrementalEncoderABREmulation : McAMPICIOIncrEncABREmuType; (*Type mcAMPICIOEE_INCR_ENC_ABR_EMU settings*)
+		IncrementalEncoderABEmulation : McAMPICIOIncrEncABEmuType; (*Type mcAMPICIOEE_INCR_ENC_AB_EMU settings*)
+	END_STRUCT;
+	McCfgAcpMulPlInCrdIOType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_MUL_PL_IN_CARD_IO*)
+		EncoderEmulation : McAMPICIOEncEmuType; (*Configuration of encoder emulation*)
+	END_STRUCT;
 	McAPICEncXIfTypEnum :
 		( (*Interface type selector setting*)
 		mcAPICEXIT_NOT_USE := 0, (*Not used -*)
@@ -1587,6 +1651,19 @@ TYPE
 		StatorResistance : REAL; (*Stator resistance (phase-phase) [Ω]*)
 		StatorInductance : REAL; (*Stator inductance (phase-phase) [mH]*)
 		TemperatureModel : McVUTmpMdlType; (*Model for winding temperature monitoring*)
+	END_STRUCT;
+	McATCAEnum :
+		( (*Template axis selector setting*)
+		mcATCA_NOT_USE := 0, (*Not used - Template configuration is not used*)
+		mcATCA_USE := 1 (*Used - Template configuration is applied*)
+		);
+	McATCAUseType : STRUCT (*Type mcATCA_USE settings*)
+		AxisName : STRING[250]; (*Name of the axis to create*)
+		TemplateReference : McCfgReferenceType; (*Name of the referenced configuration template*)
+	END_STRUCT;
+	McATCAType : STRUCT (*Template configuration real axis*)
+		Type : McATCAEnum; (*Template axis selector setting*)
+		Used : McATCAUseType; (*Type mcATCA_USE settings*)
 	END_STRUCT;
 	McAMEType : STRUCT (*Parameter of hardware elements situated between motor encoder and load which influence the scaling*)
 		Gearbox : McCfgGearBoxType; (*Specifies a gearbox by defining the ratio between a gearbox input and output*)
@@ -2932,6 +3009,7 @@ TYPE
 		FeatureReference : McCfgUnboundedArrayType; (*Name of the axis feature reference (Connect array of type McCfgReferenceType)*)
 	END_STRUCT;
 	McCfgAcpAxType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_AX*)
+		TemplateAxis : McATCAType; (*Template configuration real axis*)
 		AxisReference : McCfgReferenceType; (*Name of the referenced axis component*)
 		MechanicalElements : McAMEType; (*Parameter of hardware elements situated between motor encoder and load which influence the scaling*)
 		EncoderLink : McAELType;
@@ -2944,6 +3022,9 @@ TYPE
 		DigitalInputs : McADIType; (*Various digital input functionalities e.g. like homing switch or triggers*)
 		Simulation : McASType; (*Parameters which influence the simulation possibilities of this axis*)
 		AxisFeatures : McAAFType; (*Features for an axis*)
+	END_STRUCT;
+	McCfgAcpTemplateAxType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_TEMPL_AX*)
+		TemplateAxis : McATCAType; (*Template configuration real axis*)
 	END_STRUCT;
 	McCfgAcpAxRefType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_AX_REF*)
 		AxisReference : McCfgReferenceType; (*Name of the referenced axis component*)
@@ -2984,6 +3065,24 @@ TYPE
 	McCfgAcpZeroVibFltrType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_ZERO_VIB_FLTR*)
 		ZeroVibrationFilter : McAZVFType; (*Zero vibration filter*)
 	END_STRUCT;
+	McCfgAcpRealAxTempType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_REAL_AX_TEMP*)
+		BaseType : McABTType; (*Defines the basic movement possibilities of the axis*)
+		MovementLimits : McAMLType; (*Various limit values that will be considered for axis movements*)
+		MechanicalElements : McAMEType; (*Parameter of hardware elements situated between motor encoder and load which influence the scaling*)
+		Controller : McACType; (*Axis controller parameters*)
+		Homing : McAHType; (*Homing mode and parameters which can be used within the application program as preconfigured setting*)
+		StopReaction : McASRType; (*Reactions of the axis in case of certain stop conditions*)
+		MovementErrorLimits : McAMELType; (*Limit values that result in a stop reaction when exceeded*)
+		JerkFilter : McAJFType; (*Jerk filter*)
+		ZeroVibrationFilter : McAZVFType; (*Zero vibration filter*)
+		Simulation : McASType; (*Parameters which influence the simulation possibilities of this axis*)
+		AxisFeatures : McAAFType; (*Features for an axis*)
+	END_STRUCT;
+	McAPSMActAcpSimOnPLCEnum :
+		( (*Activates or deactivates the ACOPOS simulation on the PLC*)
+		mcAPSMAASOP_OFF := 0, (*Off - The drive is not simulated on the PLC*)
+		mcAPSMAASOP_ON := 1 (*On - The drive is simulated on the PLC*)
+		);
 	McAPSMOutParEnum :
 		( (*Output parameters selector setting*)
 		mcAPSMOP_ACPMOT_CMPCT := 0, (*ACOPOSmotor compact - Output parameters for ACOPOSmotor compact modules*)
@@ -3042,6 +3141,7 @@ TYPE
 	END_STRUCT;
 	McCfgAcpAuxPwrSupModType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_AUX_PWR_SUP_MOD*)
 		AxisReference : STRING[250]; (*Name of the power supply module component*)
+		ActivateACOPOSSimulationOnPLC : McAPSMActAcpSimOnPLCEnum; (*Activates or deactivates the ACOPOS simulation on the PLC*)
 		OutputParameters : McAPSMOutParType; (*Output parameters selection*)
 		OutputVoltageOn : McAPSMOutVOnType; (*Output voltage is on after start-up and error reset*)
 	END_STRUCT;
@@ -3056,7 +3156,8 @@ TYPE
 		mcAPSPS_AC := 0, (*AC -*)
 		mcAPSPS_DC_PWR_SUP_MOD_REF := 1, (*DC power supply module reference -*)
 		mcAPSPS_DC_BUS_V := 2, (*DC bus voltage -*)
-		mcAPSPS_ETA_SYS_FOR_TR_ONLY := 3 (*ETA system (for training only) - This mode can be used for training purpose, when using the drive within an ETA system with 24 VDC supply voltage*)
+		mcAPSPS_ETA_SYS_FOR_TR_ONLY := 3, (*ETA system (for training only) - This mode can be used for training purpose, when using the drive within an ETA system with 24 VDC supply voltage*)
+		mcAPSPS_AUT_DETECT := 4 (*Automatic detection -*)
 		);
 	McAPSPwrSupACSngPhOpEnum :
 		( (*Single phase operation selector setting*)
@@ -4438,6 +4539,9 @@ TYPE
 	END_STRUCT;
 	McCfgAcpExtEncAxEncLinkType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_EXT_ENC_AX_ENC_LINK*)
 		EncoderLink : McAEEAUseEncLinkType;
+	END_STRUCT;
+	McCfgAcpExtEncAxEncLinkPosFType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_EXT_ENC_AX_ENC_LINK_P*)
+		PositionFilter : McAEEAUELOneEncPosFltrType; (*Filter for the encoder position*)
 	END_STRUCT;
 	McCfgAcpExtEncAxMechElmType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_EXT_ENC_AX_MECH_ELM*)
 		MechanicalElements : McAMEType; (*Parameter of hardware elements situated between motor encoder and load which influence the scaling*)

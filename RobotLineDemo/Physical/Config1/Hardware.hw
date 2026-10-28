@@ -62,6 +62,7 @@
     <Group ID="FileDevice3" />
     <Parameter ID="FileDeviceName3" Value="Scene" />
     <Parameter ID="FileDevicePath3" Value="USER_PATH/Scenes" Description="../../../../../../Logical/Scene/Scenes" />
+    <Parameter ID="TimeZone" Value="140" />
     <Parameter ID="EthernetHostName" Value="laimighoferp-apc4100" />
     <Parameter ID="EthernetDefaultGateway" Value="172.30.13.1" />
     <Parameter ID="ActivateWebServer" Value="1" />

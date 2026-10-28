@@ -317,6 +317,7 @@ TYPE
 		Torque : REAL; (*Torque for holding brake test [Nm]*)
 		Duration : REAL; (*Duration of holding brake test [s]*)
 		PositionLimit : LREAL; (*Position error limit for holding brake test [Measurement units]*)
+		TorqueSlewRate : REAL; (*Torque slew rate for holding brake test [Nm/s]*)
 	END_STRUCT;
 
 	McAcpAxSimulationMass1Type : STRUCT

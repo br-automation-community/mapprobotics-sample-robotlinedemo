@@ -230,6 +230,9 @@ TYPE
 		Mass : LREAL; (*Product mass [kg]*)
 		CenterOfGravity : McToolTranslationType; (*Product center of gravity [m]*)
 		MomentOfInertiaAbout : McToolTranslationType; (*Product moment of interia about XYZ [kgm2]*)
+		ProductGravityOff : BOOL; (*Defines whether the product's gravitational load is considered when calculating the robot trajectory*)
+		ForceLimit : LREAL; (*Limits the resultant force acting between the TCP and the product due to product inertia, gravity and robot motion [N]*)
+		TorqueLimit : LREAL; (*Limits the resultant torque acting between the TCP and the product due to product inertia, gravity and robot motion [Nm]*)
 	END_STRUCT;
 	McToolWireFrameType : 	STRUCT  (*Tool wire frame description*)
 		Point : ARRAY[0..15]OF McToolWireFramePointType; (*Tool wire frame points*)

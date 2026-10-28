@@ -49,6 +49,7 @@
           <Property ID="DefaultRole0" Value="BR_Anonymous" />
         </Group>
       </Group>
+      <Property ID="AppCertificateStoreConfiguration" Value="SSLConfiguration" />
       <Property ID="AppCertificateTrustListValidation" Value="1" />
     </Group>
     <Group ID="Limits">

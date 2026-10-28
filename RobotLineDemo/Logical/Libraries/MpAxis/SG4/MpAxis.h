@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpAxis 6.7.2 */
+/* MpAxis 6.9.1 */
 
 #ifndef _MPAXIS_
 #define _MPAXIS_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpAxis_VERSION
-#define _MpAxis_VERSION 6.7.2
+#define _MpAxis_VERSION 6.9.1
 #endif
 
 #include <bur/plctypes.h>
@@ -355,6 +355,11 @@ typedef enum MpAXBDrvJerkFilterTypEnum
 	mcAXB_JERK_FLTR_TIME = 1,
 	mcAXB_JERK_FLTR_LIM = 2
 } MpAXBDrvJerkFilterTypEnum;
+
+typedef enum MpAXBDrvZeroVibFltrTypEnum
+{	mcAXB_ZERO_VIB_FLTR_NOT_USE = 0,
+	mcAXB_ZERO_VIB_FLTR_USE = 1
+} MpAXBDrvZeroVibFltrTypEnum;
 
 typedef enum MpAXBDrvDigInLevelEnum
 {	mcAXB_DI_LEVEL_HIGH = 0,
@@ -1157,6 +1162,13 @@ typedef struct MpAXBDrvJerkFilterType
 	float Jerk;
 } MpAXBDrvJerkFilterType;
 
+typedef struct MpAXBDrvZeroVibFltrType
+{	enum MpAXBDrvZeroVibFltrTypEnum Type;
+	float FilterCoefficient;
+	float FilterTime;
+	float MaximumFilterTime;
+} MpAXBDrvZeroVibFltrType;
+
 typedef struct MpAXBDrvDigInHomeSwType
 {	enum MpAXBDrvDigInLevelEnum Level;
 	enum MpAXBDrvDigInSrcEnum Source;
@@ -1317,6 +1329,7 @@ typedef struct MpAXBDrvType
 	struct MpAXBDrvStopReacType StopReaction;
 	struct MpAXBDrvMovementErrorLimitsType MovementErrorLimits;
 	struct MpAXBDrvJerkFilterType JerkFilter;
+	struct MpAXBDrvZeroVibFltrType ZeroVibrationFilter;
 	struct MpAXBDrvDigInType DigitalInputs;
 	struct MpAXBDrvEncLinkType EncoderLink;
 } MpAXBDrvType;

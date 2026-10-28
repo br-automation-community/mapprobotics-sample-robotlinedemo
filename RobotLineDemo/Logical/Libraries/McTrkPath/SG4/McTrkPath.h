@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McTrkPath 6.7.2 */
+/* McTrkPath 6.9.1 */
 
 #ifndef _MCTRKPATH_
 #define _MCTRKPATH_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McTrkPath_VERSION
-#define _McTrkPath_VERSION 6.7.2
+#define _McTrkPath_VERSION 6.9.1
 #endif
 
 #include <bur/plctypes.h>
