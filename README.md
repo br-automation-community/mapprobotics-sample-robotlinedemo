@@ -11,12 +11,11 @@ https://github.com/user-attachments/assets/027d6f4d-309f-40dc-9b01-664d002a4455
 
 ## Prerequisites
 
-- B&R Automation Studio 6.5.2 or later
-- Automation Runtime 6.6.2
-- mapp Motion 6.7.2
-- mapp View 6.5.0  
-- OPC UA C/S 6.6.1  
-- Scene Viewer 6.3.2
+- B&R Automation Studio 6.5.3 or later
+- Automation Runtime 6.8.1
+- mapp Motion 6.9.1
+- OPC UA C/S 6.8.0  
+- Scene Viewer 6.4.0
 - Basic understanding of Structured Text and robot Motion Structured Text (MotionST) programming
 - Familiarity with mapp Robotics and Conveyor Tracking concepts
 - Powerful PC/Notebook to run the project on Windows (simulation mode) or B&R Automation PC (see project configuration) to run the project on an actual target
