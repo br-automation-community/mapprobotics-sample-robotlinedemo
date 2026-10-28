@@ -325,6 +325,17 @@ TYPE
 		Type : MpAXBDrvJerkFilterTypEnum; (*Jerk filter setting*)
 		Jerk : REAL; (*Dependant on selected type it is either the jerk limit in any movement direction or a jerk filter time.*)
 	END_STRUCT;
+	MpAXBDrvZeroVibFltrTypEnum :
+		( (*Zero vibration filter setting*)
+		mcAXB_ZERO_VIB_FLTR_NOT_USE := 0, (*Not used*)
+		mcAXB_ZERO_VIB_FLTR_USE := 1 (*Used*)
+		);
+	MpAXBDrvZeroVibFltrType : STRUCT (*Zero vibration filter*)
+		Type : MpAXBDrvZeroVibFltrTypEnum; (*Zero vibration filter setting*)
+		FilterCoefficient : REAL; (*Zero vibration filter coefficient*)
+		FilterTime : REAL; (*Zero vibration filter time*)
+		MaximumFilterTime : REAL; (*Maximum configurable filter time*)
+	END_STRUCT;
 	MpAXBDrvDigInLevelEnum :
 		( (*Level of the digital input hardware which leads to an active level of the functionality*)
 		mcAXB_DI_LEVEL_HIGH := 0, (*High*)
@@ -630,6 +641,7 @@ TYPE
 		StopReaction : MpAXBDrvStopReacType; (*Reactions of the axis in case of certain stop conditions*)
 		MovementErrorLimits : MpAXBDrvMovementErrorLimitsType; (*Limit values that result in a stop reaction when exceeded*)
 		JerkFilter : MpAXBDrvJerkFilterType; (*Jerk filter*)
+		ZeroVibrationFilter : MpAXBDrvZeroVibFltrType; (*Zero vibration filter*)
 		DigitalInputs : MpAXBDrvDigInType; (*Various digital input functionalities e.g. like homing switch or triggers*)
 		EncoderLink : MpAXBDrvEncLinkType; (*Encoder Link*)
 	END_STRUCT;

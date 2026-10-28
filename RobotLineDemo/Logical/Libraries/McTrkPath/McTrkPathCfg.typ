@@ -321,7 +321,7 @@ TYPE
 		UserData : McTPLinFrmDatType; (*TrackingFrame user data is automatically allocated and released by the TrackingPath component. During the lifetime of a TrackingFrame the allocated user data can be accessed (read/write) via the corresponding function block*)
 	END_STRUCT;
 	McTPLinType : STRUCT (*Type mcTPT_LIN settings*)
-		MaxTrackingFrames : UINT; (*Maximum number of TrackingFrames*)
+		MaxTrackingFrames : UINT; (*Maximum number of TrackingFrames. Directly impacts the CPU load (cyclic mapp Motion processing task class)*)
 		MaxPositionError : LREAL; (*Maximal deviation between TrackingFrames and motion source position when considering TrackingPath movement limits [measurement units]*)
 		MotionSource : McTPLinMotSrcType; (*Source describing the TrackingPath movement*)
 		TrackingFrames : McTPLinTrkFrmType;

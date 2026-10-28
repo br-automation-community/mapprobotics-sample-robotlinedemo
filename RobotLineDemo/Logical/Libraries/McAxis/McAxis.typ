@@ -174,6 +174,7 @@ TYPE
 		Acceleration : REAL; (*Maximum acceleration [Measurement units/s�]*)
 		Deceleration : REAL; (*Maximum deceleration [Measurement units/s�]*)
 		Jerk : REAL; (*Maximum jerk [Measurement units/s�]*)
+		AlternativeValueSource : McAltValueSrcEnum; (*If used, defines the alternative source of cyclic velocity value [Axis units/s]*)
 	END_STRUCT;
 
 	McShiftModeEnum:
@@ -416,7 +417,8 @@ TYPE
 	 	mcAX_TYPE_DS402_INV,	(*DS402 conform inverter axis*)
 	 	mcAX_TYPE_PURE_VIRT_EXT_ENC,	(*Purely virtual axis with activated external encoder axis interface*)
 	 	mcAX_TYPE_PURE_VIRT_DS402_CSP,	(*Purely virtual axis with activated DS402 CSP*)
-	 	mcAX_TYPE_PURE_VIRT_DS402_VL	(*Purely virtual axis with activated DS402 VL*)
+	 	mcAX_TYPE_PURE_VIRT_DS402_VL,	(*Purely virtual axis with activated DS402 VL*)
+	 	mcAX_TYPE_ACP_INV_V2	(*ACOPOSinverter version 2 axis*)
 	);
 
 	McAcpAxAutoTuneFeedFwdModeEnum:

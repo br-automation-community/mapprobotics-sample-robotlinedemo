@@ -68,7 +68,7 @@ TYPE
 	McTrkPathInfoType : 	STRUCT
 		PLCopenState : McTrkPathPLCopenStateEnum; (*TrackingPath PLCopen state*)
 		TrackingFrameCount : UINT; (*Number of TrackingFrames currently existing in TrackingPath*)
-		TrackingFrameLimitReached : BOOL; (* Configured maximum number of TrackingFrames reached*)
+		TrackingFrameLimitReached : BOOL; (* Configured Maximum number of TrackingFrames. Directly impacts the Cpu load (cyclic mapp motion processing task class) reached*)
 		TrackingPathEstimatedMotionState : McTrkPathEstimatedMotionState; (*Estimated TrackingPath motion state*)
 		AxisCommandConsideration : McTrkPathAxisCmdConsiderType; (*Config of Axis Command Consideration*)
 		PositionError : LREAL; (*Position error*)

@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAcpAx 6.7.2 */
+/* McAcpAx 6.9.1 */
 
 #ifndef _MCACPAX_
 #define _MCACPAX_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAcpAx_VERSION
-#define _McAcpAx_VERSION 6.7.2
+#define _McAcpAx_VERSION 6.9.1
 #endif
 
 #include <bur/plctypes.h>
@@ -583,6 +583,34 @@ typedef enum McAMPICEITIWDCMOutStgEnum
 	mcAMPICEITIWDCMOS_PUSH = 2
 } McAMPICEITIWDCMOutStgEnum;
 
+typedef enum McAMPICIOEncEmuEnum
+{	mcAMPICIOEE_NOT_USE = 0,
+	mcAMPICIOEE_INCR_ENC_ABR_EMU = 1,
+	mcAMPICIOEE_INCR_ENC_AB_EMU = 2
+} McAMPICIOEncEmuEnum;
+
+typedef enum McAMPICIOIncrEmuValSrcChanEnum
+{	mcAMPICIOIEVSC_CH_1 = 0,
+	mcAMPICIOIEVSC_CH_2 = 1
+} McAMPICIOIncrEmuValSrcChanEnum;
+
+typedef enum McAMPICIOIncrEmuValSrcEnum
+{	mcAMPICIOIEVS_REAL_AX_SET_POS = 0,
+	mcAMPICIOIEVS_REAL_AX_ACT_POS = 1,
+	mcAMPICIOIEVS_VIRT_AX_POS = 2,
+	mcAMPICIOIEVS_PARID = 3
+} McAMPICIOIncrEmuValSrcEnum;
+
+typedef enum McAMPICIOIncrEncABREmuCntDirEnum
+{	mcAMPICIOIEABRECD_STD = 0,
+	mcAMPICIOIEABRECD_INV = 1
+} McAMPICIOIncrEncABREmuCntDirEnum;
+
+typedef enum McAMPICIOIncrEncABEmuCntDirEnum
+{	mcAMPICIOIEABECD_STD = 0,
+	mcAMPICIOIEABECD_INV = 1
+} McAMPICIOIncrEncABEmuCntDirEnum;
+
 typedef enum McAPICEncXIfTypEnum
 {	mcAPICEXIT_NOT_USE = 0,
 	mcAPICEXIT_ENDAT = 1,
@@ -810,6 +838,11 @@ typedef enum McVUTmpMdlEnum
 {	mcVUTM_CURBASED = 1,
 	mcVUTM_NOT_USE = 2
 } McVUTmpMdlEnum;
+
+typedef enum McATCAEnum
+{	mcATCA_NOT_USE = 0,
+	mcATCA_USE = 1
+} McATCAEnum;
 
 typedef enum McAELEnum
 {	mcAEL_ONE_ENC = 0,
@@ -1207,6 +1240,11 @@ typedef enum McASAMEnum
 	mcASAM_COMPL = 2
 } McASAMEnum;
 
+typedef enum McAPSMActAcpSimOnPLCEnum
+{	mcAPSMAASOP_OFF = 0,
+	mcAPSMAASOP_ON = 1
+} McAPSMActAcpSimOnPLCEnum;
+
 typedef enum McAPSMOutParEnum
 {	mcAPSMOP_ACPMOT_CMPCT = 0,
 	mcAPSMOP_ACOPOSTRAK = 1,
@@ -1232,7 +1270,8 @@ typedef enum McAPSPwrSupEnum
 {	mcAPSPS_AC = 0,
 	mcAPSPS_DC_PWR_SUP_MOD_REF = 1,
 	mcAPSPS_DC_BUS_V = 2,
-	mcAPSPS_ETA_SYS_FOR_TR_ONLY = 3
+	mcAPSPS_ETA_SYS_FOR_TR_ONLY = 3,
+	mcAPSPS_AUT_DETECT = 4
 } McAPSPwrSupEnum;
 
 typedef enum McAPSPwrSupACSngPhOpEnum
@@ -1965,6 +2004,7 @@ typedef struct McAcpAxBrakeTestParType
 	float Torque;
 	float Duration;
 	double PositionLimit;
+	float TorqueSlewRate;
 } McAcpAxBrakeTestParType;
 
 typedef struct McAcpAxSimulationMass1Type
@@ -3666,6 +3706,49 @@ typedef struct McCfgAcpMulPlInCrdEncType
 {	struct McAMPICEIfTypType InterfaceType;
 } McCfgAcpMulPlInCrdEncType;
 
+typedef struct McAMPICIOIncrEmuValSrcChanType
+{	enum McAMPICIOIncrEmuValSrcChanEnum Type;
+} McAMPICIOIncrEmuValSrcChanType;
+
+typedef struct McAMPICIOIncrEmuValSrcParIDType
+{	unsigned short ParID;
+} McAMPICIOIncrEmuValSrcParIDType;
+
+typedef struct McAMPICIOIncrEmuValSrcType
+{	enum McAMPICIOIncrEmuValSrcEnum Type;
+	struct McAMPICIOIncrEmuValSrcParIDType ParID;
+} McAMPICIOIncrEmuValSrcType;
+
+typedef struct McAMPICIOIncrEncABREmuType
+{	struct McAMPICIOIncrEmuValSrcChanType ValueSourceChannel;
+	struct McAMPICIOIncrEmuValSrcType ValueSource;
+	unsigned long LinesPerEncoderRevolution;
+	double UnitsPerEncoderRevolutions;
+	unsigned long UnitsPerEncoderRevolutionsParID;
+	unsigned long NumberOfEncoderRevolutions;
+	enum McAMPICIOIncrEncABREmuCntDirEnum CountDirection;
+} McAMPICIOIncrEncABREmuType;
+
+typedef struct McAMPICIOIncrEncABEmuType
+{	struct McAMPICIOIncrEmuValSrcChanType ValueSourceChannel;
+	struct McAMPICIOIncrEmuValSrcType ValueSource;
+	unsigned long LinesPerEncoderRevolution;
+	double UnitsPerEncoderRevolutions;
+	unsigned long UnitsPerEncoderRevolutionsParID;
+	unsigned long NumberOfEncoderRevolutions;
+	enum McAMPICIOIncrEncABEmuCntDirEnum CountDirection;
+} McAMPICIOIncrEncABEmuType;
+
+typedef struct McAMPICIOEncEmuType
+{	enum McAMPICIOEncEmuEnum Type;
+	struct McAMPICIOIncrEncABREmuType IncrementalEncoderABREmulation;
+	struct McAMPICIOIncrEncABEmuType IncrementalEncoderABEmulation;
+} McAMPICIOEncEmuType;
+
+typedef struct McCfgAcpMulPlInCrdIOType
+{	struct McAMPICIOEncEmuType EncoderEmulation;
+} McCfgAcpMulPlInCrdIOType;
+
 typedef struct McAP3PICEITEnDatType
 {	float LineResistance;
 } McAP3PICEITEnDatType;
@@ -4044,6 +4127,16 @@ typedef struct McCfgVibrUnitType
 	float StatorInductance;
 	struct McVUTmpMdlType TemperatureModel;
 } McCfgVibrUnitType;
+
+typedef struct McATCAUseType
+{	plcstring AxisName[251];
+	struct McCfgReferenceType TemplateReference;
+} McATCAUseType;
+
+typedef struct McATCAType
+{	enum McATCAEnum Type;
+	struct McATCAUseType Used;
+} McATCAType;
 
 typedef struct McAMEType
 {	struct McCfgGearBoxType Gearbox;
@@ -4851,7 +4944,8 @@ typedef struct McAAFType
 } McAAFType;
 
 typedef struct McCfgAcpAxType
-{	struct McCfgReferenceType AxisReference;
+{	struct McATCAType TemplateAxis;
+	struct McCfgReferenceType AxisReference;
 	struct McAMEType MechanicalElements;
 	struct McAELType EncoderLink;
 	struct McACType Controller;
@@ -4864,6 +4958,10 @@ typedef struct McCfgAcpAxType
 	struct McASType Simulation;
 	struct McAAFType AxisFeatures;
 } McCfgAcpAxType;
+
+typedef struct McCfgAcpTemplateAxType
+{	struct McATCAType TemplateAxis;
+} McCfgAcpTemplateAxType;
 
 typedef struct McCfgAcpAxRefType
 {	struct McCfgReferenceType AxisReference;
@@ -4913,6 +5011,20 @@ typedef struct McCfgAcpZeroVibFltrType
 {	struct McAZVFType ZeroVibrationFilter;
 } McCfgAcpZeroVibFltrType;
 
+typedef struct McCfgAcpRealAxTempType
+{	struct McABTType BaseType;
+	struct McAMLType MovementLimits;
+	struct McAMEType MechanicalElements;
+	struct McACType Controller;
+	struct McAHType Homing;
+	struct McASRType StopReaction;
+	struct McAMELType MovementErrorLimits;
+	struct McAJFType JerkFilter;
+	struct McAZVFType ZeroVibrationFilter;
+	struct McASType Simulation;
+	struct McAAFType AxisFeatures;
+} McCfgAcpRealAxTempType;
+
 typedef struct McAPSMOutParAcpMotCmpctType
 {	float Voltage;
 	float CurrentLimit;
@@ -4958,6 +5070,7 @@ typedef struct McAPSMOutVOnType
 
 typedef struct McCfgAcpAuxPwrSupModType
 {	plcstring AxisReference[251];
+	enum McAPSMActAcpSimOnPLCEnum ActivateACOPOSSimulationOnPLC;
 	struct McAPSMOutParType OutputParameters;
 	struct McAPSMOutVOnType OutputVoltageOn;
 } McCfgAcpAuxPwrSupModType;
@@ -5916,6 +6029,10 @@ typedef struct McCfgAcpExtEncAxRefType
 typedef struct McCfgAcpExtEncAxEncLinkType
 {	struct McAEEAUseEncLinkType EncoderLink;
 } McCfgAcpExtEncAxEncLinkType;
+
+typedef struct McCfgAcpExtEncAxEncLinkPosFType
+{	struct McAEEAUELOneEncPosFltrType PositionFilter;
+} McCfgAcpExtEncAxEncLinkPosFType;
 
 typedef struct McCfgAcpExtEncAxMechElmType
 {	struct McAMEType MechanicalElements;
